@@ -1,0 +1,9 @@
+version: 2
+
+sources:
+  - name: raw
+    database: DBTSNFLEARNING2026
+    schema: sales
+    tables:
+      - name: EMPLOYEES
+      - name: Department
