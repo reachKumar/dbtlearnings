@@ -1,0 +1,11 @@
+sources:
+  - name: raw
+    database: DBTSNFLEARNING2026
+    schema: STG_SALES
+    tables:
+      - name: employees        
+      - name: ACCOUNT_TRANSACTIONS
+      - name: CALENDAR
+      - name: CUSTOMER_ACCOUNT
+
+
