@@ -1,1 +1,12 @@
-select * from {{ source('raw', 'employees') }}
+{{
+
+    config(
+        materialized='table'
+    )
+}}
+
+select 
+
+* 
+
+from {{ source('raw', 'employees') }}
