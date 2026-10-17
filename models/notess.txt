@@ -1,4 +1,15 @@
 
+python.exe -m pip install --upgrade pip
+
+python -m pip install "dbt-core==1.11.11" "dbt-snowflake==1.11.0"
+
+dbt init
+
+dbt debug --profile dbtsnflearning
+dbt clean
+dbt init dbtsnflearning
+
+
 dbtsnflearning:
   outputs:
     dev:
