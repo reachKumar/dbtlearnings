@@ -1,0 +1,113 @@
+https://zb359.us1.dbt.com/studio/70506183169931/projects/70506183173761
+https://app.snowflake.com/dqponca/bc57824/#/data/databases/DBTSNFLEARNING2026
+
+python.exe -m pip install --upgrade pip
+
+python -m pip install "dbt-core==1.11.11" "dbt-snowflake==1.11.0"
+
+dbt init
+
+dbt debug --profile dbtsnflearning
+dbt clean
+dbt init dbtsnflearning
+
+
+dbtsnflearning:
+  outputs:
+    dev:
+      account: DQPONCA-BC57824.snowflakecomputing.com
+      database: DBTSNFLEARNING2026
+      #password: Qwert0#
+      authenticator: externalbrowser
+      role: accountadmin
+      schema: sales
+      threads: 1
+      type: snowflake
+      user: RKSNFLEARNING
+      warehouse: compute_wh
+  target: dev
+SELECT SYSTEM$ALLOWLIST();
+
+profile:C:\Users\rkalivix\.dbt
+
+SELECT CURRENT_ROLE();
+SELECT CURRENT_DATABASE();
+SELECT CURRENT_SCHEMA();
+
+
+GRANT USAGE ON DATABASE DBTSNFLEARNING2026
+TO ROLE DBT_ROLE;
+
+
+SHOW GRANTS TO USER IDENTIFIER(CURRENT_USER());
+
+create schema stg_sales
+
+create table CALENDAR as 
+select * from SNOWFLAKE_PUBLIC_DATA_FREE.PUBLIC_DATA_FREE.CALENDAR_INDEX
+
+
+create table EMPLOYEES as 
+select * from 
+DBTSNFLEARNING2026.SALES.EMPLOYEES
+
+drop view DBTSNFLEARNING2026.SALES.STG_EMP
+
+drop table DBTSNFLEARNING2026.SALES.EMPLOYEES
+
+
+
+
+select * from CALENDAR
+
+
+create table Account_Transactions as 
+select * from AIZLE_SYNTHETIC_OPEN_BANKING_DATA_UK_SAMPLE.BANK1.TRANSACTIONS
+
+
+create table Customer_Account as 
+select * from 
+AIZLE_SYNTHETIC_OPEN_BANKING_DATA_UK_SAMPLE.BANK1.ACCOUNTS
+
+
+insert into EMPLOYEES
+values
+(25,'Ramappa','Goudya','ram.gopal@yahoo.com',CURRENT_DATE()+3,2222)
+
+
+update EMPLOYEES
+set hire_date=current_date()+7
+where employee_id=15
+
+select * from DBTSNFLEARNING2026.STG_SALES.EMPLOYEES
+
+select * from DBTSNFLEARNING2026.SALES.STG_EMP_MERGE
+
+
+select distinct ACCOUNTSUBTYPE
+from
+DBTSNFLEARNING2026.STG_SALES.CUSTOMER_ACCOUNT
+
+
+select * from DBTSNFLEARNING2026.STG_SALES.EMPLOYEES
+
+
+create table DBTSNFLEARNING2026.STG_SALES.model_log(
+
+model_name varchar,
+status varchar,
+run_at timestamp
+) ;
+
+
+select 
+
+* 
+
+from DBTSNFLEARNING2026.STG_SALES.employees
+
+
+where hire_date>(select max(hire_date) from DBTSNFLEARNING2026.sales.stg_emp_append)
+
+
+)

@@ -1,0 +1,4 @@
+{% macro cents_to_dollars(column_name) %}
+    round(({{ column_name}}/1000.0),2)
+
+{% endmacro %}
