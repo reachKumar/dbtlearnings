@@ -1,0 +1,4 @@
+models:
+  - name: employee_salary_by_year
+    config: 
+      schema: gold
