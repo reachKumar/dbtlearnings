@@ -1,3 +1,22 @@
+
+dbtsnflearning:
+  outputs:
+    dev:
+      account: DQPONCA-BC57824.snowflakecomputing.com
+      database: DBTSNFLEARNING2026
+      #password: Qwert0#
+      authenticator: externalbrowser
+      role: accountadmin
+      schema: sales
+      threads: 1
+      type: snowflake
+      user: RKSNFLEARNING
+      warehouse: compute_wh
+  target: dev
+SELECT SYSTEM$ALLOWLIST();
+
+profile:C:\Users\rkalivix\.dbt
+
 SELECT CURRENT_ROLE();
 SELECT CURRENT_DATABASE();
 SELECT CURRENT_SCHEMA();
