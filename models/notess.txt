@@ -1,3 +1,5 @@
+https://zb359.us1.dbt.com/studio/70506183169931/projects/70506183173761
+https://app.snowflake.com/dqponca/bc57824/#/data/databases/DBTSNFLEARNING2026
 
 python.exe -m pip install --upgrade pip
 
