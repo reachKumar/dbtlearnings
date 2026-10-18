@@ -11,6 +11,7 @@ dbt debug --profile dbtsnflearning
 dbt clean
 dbt init dbtsnflearning
 
+>> Profile
 
 dbtsnflearning:
   outputs:
@@ -26,6 +27,19 @@ dbtsnflearning:
       user: RKSNFLEARNING
       warehouse: compute_wh
   target: dev
+
+>> project Yamal to load from one db to other db
+
+models:
+  dbt_snf_sales:
+    staging:
+      +materialized: table
+    analysis:
+      +database: dw_movies
+      +schema: reporting
+      +materialized: view
+
+
 SELECT SYSTEM$ALLOWLIST();
 
 profile:C:\Users\rkalivix\.dbt
