@@ -40,7 +40,10 @@ models:
     # Applies to all files under models/example/
     staging:
       +materialized: table
-      +schema: stg
-    gold:
+    curated:
+      +materialized: table
+    analysis:
+      +database: dw_movies
+      +schema: reporting
       +materialized: view
       +schema: analysis
